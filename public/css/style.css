@@ -1,0 +1,539 @@
+/* Importing the fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200&display=swap');
+
+/* Css reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+/* :root{
+    First Combo
+    --lightBlue: #85dcbb;
+    --coralBlue: #41B3A3;
+    --pink: #E27D60;
+    --maroon: #E8A87C;
+    --violet:#C38D9E;
+} */
+
+:root{
+    /* Second Combo
+    --lightBlue: #747474;
+    --coralBlue: #272727;
+    --pink: #E27D60;
+    --maroon: #FFE400;
+    --violet:#C38D9E;
+    --white: #14A76C; */
+
+    /* Third Combo 
+    --white: #fff;
+    --navy: #26495c;
+    --ochre: #c4a35a;
+    --sienna: #c66b3d;
+    --grey: #e5e5dc; */
+
+    /* Fourth Combo */
+    --pine: #1d3c45;
+    --lightBlue: #aed6dc;
+    --lightpink: #ff9a8d;
+    --orange: #d2601a;
+    --peach: #fff1e1;
+
+    /* Form Combo */
+    --navy: #26495c;
+    --ochre: #c4a35a;
+    --sienna: #c66b3d;
+    --grey: #e5e5dc;
+    --lightGrey: #E6D5B8;
+    --greenShade: #006400;
+    --black: #000;
+}
+
+body{
+    background-color: var(--peach);
+}
+
+/* Flex territory */
+.navigation ul, .navigation ul li, .navigation ul li a, .topbar, .toogle, .search label, .card, .crud-buttons, .slots-content{
+    display: flex;
+}
+
+.navigation ul{
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.navigation li a, .navigation ul, .toogle, .search label{
+    align-items: center;
+}
+
+.topbar, .card, .crud-buttons{
+    justify-content: space-between;
+}
+
+/* Styling the navigation */
+.container{
+    background-color: var(--orange);
+    position: relative;
+}
+
+.container, .navigation li{
+    width: 100%;
+}
+
+.navigation{
+    position: fixed;
+    width: 300px;
+    left: 0;
+    height: 100%;
+    border-left: 10px solid var(--peach);
+    transition: 0.5s all ease;
+    overflow: hidden;
+}
+
+.navigation ul{
+    list-style-type: none;
+    height: 100%;
+}
+
+.navigation, .navigation ul{
+    background-color: var(--lightBlue);
+}
+
+a{
+    text-decoration: none;
+}
+
+.logo{
+    display: block;
+    padding: 5px 0;
+    pointer-events: none;
+}
+
+/* .navigation a:first-child{
+    pointer-events: none;
+} */
+
+/* .navigation li, .toogle{
+    justify-content: center;
+} */
+
+.toogle, .slots-content{
+    justify-content: center;
+}
+
+.navigation li a{
+    padding: 20px 0;
+    color: #000;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.navigation li:hover a{
+    color: var(--white);
+}
+
+.navigation li:hover{
+    background-color: var(--peach);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.icon{
+    margin-right: 10px;
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+
+/* .icon, .toggle ion-icon{
+    font-size: 1.5rem;
+} */
+
+.title{
+    font-size: 12px;
+}
+
+/* Styling the main content */
+main{
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: calc(100% - 300px);
+    min-height: 100vh;
+}
+
+.topbar{
+    padding:10px 30px;
+}
+
+.toogle{
+    width: 30px;
+    height: 30px; 
+    font-size: 2.5rem;
+}
+
+.navigation li:hover, .toogle, .user:hover, .card, .crud-buttons button{
+    cursor: pointer;
+}
+
+.search{
+    position: relative;
+    width: 400px;
+}
+
+.search label{
+    position: relative;
+    width: 100%;
+}
+
+.search label input{
+    width: 100%;
+    height: 40px;
+    font-size: 12px;
+    border-radius: 40px;
+    padding: 5px 50px;
+    outline: none;
+    border: 1px solid var(--white);  
+}
+
+.search label ion-icon{
+    position: absolute;
+    left: 20px;
+    font-size: 1rem;
+}
+
+.menu-content{
+    display: none;
+    transition: 0.5s all ease;
+}
+
+/* .user{
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.user img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+} */
+
+/* Js Toggle */
+.navigation.active{
+    width: 80px;
+}
+
+main.active{
+    width: calc(100% - 80px);
+    left: 80px;
+    transition: 0.5s all ease;
+}
+/* Styling the main menu content */
+
+/* .menu-content{
+    display: none;
+    transition: 0.5s all ease;
+}
+
+.cardBox{
+    gap: 30px;
+}
+
+.cardBox, .miniCards{
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.card{
+    position: relative;
+    background-color: var(--grey);
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.card:hover{
+    background-color: var(--white);
+}
+
+.iconBox{
+    font-size: 2rem;
+} */
+
+/* Styling the CRUD part */
+
+/* .listes{
+    position: relative;
+    width: 100%;
+    padding: 30px;
+}
+
+.cardHeader h2{
+    font-weight: 300;
+}
+
+.crud-buttons button{
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    border-radius: 15px;
+} */
+
+
+/* Styling the main home content */
+.main-title, .main-title + h3{
+    text-align: center;
+}
+
+.main-title, .main-title + h3, .title-form, .details, .button input{
+    font-weight: 200;
+}
+
+.main-title{
+    padding-top: 60px;
+}
+
+.main-title + h3{
+    padding-top: 30px;
+}
+
+.banner{
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.images span img{
+    width: 192px;
+    height: 192px;
+}
+
+.banner{
+    padding: 220px 10px;
+}
+
+.slots-content h5{
+    font-size: 14px;
+    padding-top: 45px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* Styling the form for adding informations */
+
+body{
+    /* background-color: var(--grey); */
+    height: 100vh;
+}
+
+/* Styling the reusable parts */
+.container-form{
+    max-width: 800px;
+    width: 100%;
+    background-color: var(--peach);
+    padding: 30px;
+    margin: 10px auto 0;
+}
+
+/* Using the flex */
+.user-details, .category, .category label{
+    display: flex;
+}
+
+.category label{
+    align-items: center;
+}
+
+.user-details{
+    flex-wrap: wrap;
+    padding: 30px 0;
+}
+
+.user-details, .category{
+    justify-content: space-between;
+}
+
+/* Styling the common fields */
+.container-form, .input-box input, .button input{
+    border-radius: 5px;
+}
+
+/* Styling the title */
+.title-form{
+    position: relative;
+}
+
+.title-form::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 35px;
+    background-color: var(--lightGrey);
+}
+
+/* Styling the input fields and their containers */
+.input-box{
+    width: calc(100% / 2 - 25px);
+    margin-bottom: 30px;
+}
+
+.details{
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 45px;
+    padding-left: 15px;
+    outline: none;
+    border: 1px solid var(--lightGrey);
+    border-bottom-width: 2px;
+    font-size: 14px;
+}
+
+.input-box input, .button input{
+    transition: all 0.3 ease;
+}
+
+.input-box input:hover, .input-box input:focus, .input-box:valid{
+    border-color: #1B1A17;
+}
+
+/* Styling the second part of input fields */
+/* .gender-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.category{
+    width: 80%;
+    padding-top: 15px;
+}
+
+.category label{
+    cursor: pointer;
+}
+
+.dot{
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #fff;
+    margin-right: 10px;
+    border: 1px solid transparent;
+}
+
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two,
+#dot-3:checked ~ .category label .three{
+   background: #E45826;
+   border-color: #d9d9d9;
+}
+
+form input[type="radio"]{
+   display: none;
+} */
+
+/* Styling the registration button */
+
+.button{
+    background-color: pink;
+    height: 45px;
+    margin: 30px 0;
+}
+
+.button input:hover{
+    cursor: pointer;
+}
+
+.button input{
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+    letter-spacing: 1px;
+    background: linear-gradient(132deg, rgba(230,213,184,1) 85%, rgba(255,154,141,1) 100%);
+    border: none;
+}
+
+/* Styling the form registration and account creation */
+.options a {
+    color: var(--navy);
+}
+
+.options a:hover {
+    color: var(--sienna);
+    transition: 0.20s ease-in;
+    text-decoration: none;
+}
+
+
+/* Handling the responsivity */
+@media screen and (max-width: 584px) {
+    .container-form{
+        max-width: 100%;
+    }
+
+    .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .category{
+        width: 100%;
+    }
+
+    .user-details{
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    .user-details::-webkit-scrollbar{
+        width: 5px;
+    }
+}
+
+@media(max-width: 459px){
+    .category{
+        flex-direction: column;
+    }
+}
+
+
+/* Responsive design for the dashboard */
+@media (max-width: 1000px){
+    .navigation{
+        left: -300px;
+    }
+
+    .navigation.active{
+        width: 300px;
+        left: 0;
+    }
+
+    main{
+        width: 100%;
+        left: 0;
+    }
+
+    main.active{
+        left: 300px;
+    }
+
+    /* .cardBox{
+        grid-template-columns: repeat(2,1fr);
+    } */
+}
