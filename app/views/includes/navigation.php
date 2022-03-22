@@ -14,7 +14,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="<?php echo URLROOT; ?>/entreprises/liste">
                         <span class="icon">
                             <ion-icon name="list-outline"></ion-icon>
                         </span>
@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="ajout.html">
+                    <a href="<?php echo URLROOT; ?>/entreprises/ajout">
                         <span class="icon">
                             <ion-icon name="add-outline"></ion-icon>
                         </span>

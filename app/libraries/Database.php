@@ -28,6 +28,11 @@
             $this->statement = $this->dbHandler->prepare($sql);
         }
 
+        // Getting the last inserted id
+        public function lastInsertion(){
+            return $this->statement = $this->dbHandler->lastInsertId();
+        }
+
         //Bind values
         public function bind($parameter, $value, $type = null) {
             switch (is_null($type)) {

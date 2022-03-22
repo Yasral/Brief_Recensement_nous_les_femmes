@@ -251,6 +251,18 @@ main.active{
     grid-template-columns: repeat(4,1fr);
 }
 
+*/
+
+.miniCards{
+    position: relative;
+    width: 100%;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+/*
+
 .card{
     position: relative;
     background-color: var(--grey);
@@ -268,13 +280,13 @@ main.active{
 
 /* Styling the CRUD part */
 
-/* .listes{
+.listes{
     position: relative;
     width: 100%;
     padding: 30px;
 }
 
-.cardHeader h2{
+.cardHeader > h2, .nom h3, .siege h4, .nom-repondant h5, .crud-buttons button{
     font-weight: 300;
 }
 
@@ -284,7 +296,7 @@ main.active{
     padding: 10px 20px;
     font-size: 0.8rem;
     border-radius: 15px;
-} */
+}
 
 
 /* Styling the main home content */
@@ -479,6 +491,16 @@ form input[type="radio"]{
     transition: 0.20s ease-in;
     text-decoration: none;
 }
+
+/* Styling the hidden input  */
+.hidden-input{
+    display: none;
+}
+
+/* .input-checkbox .details + input{
+    display: inline-block;
+    margin-bottom: 30px;
+} */
 
 
 /* Handling the responsivity */
