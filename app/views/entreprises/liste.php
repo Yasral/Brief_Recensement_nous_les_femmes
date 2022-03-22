@@ -23,21 +23,23 @@
                     </div>
                     <div class="cardEntreprise">
                         <!-- Don't forget to use a for loop and grid display -->
+                        <?php foreach($data as $liste) { ?>
                         <div class="miniCards">
                             <div class="nom">
-                                <h3>Sama Yeuff</h3>
+                                <h3><?php echo $liste->nom_entreprise ?></h3>
                             </div>
                             <div class="siege">
-                                <h4>Mermoz</h4>
+                                <h4><?php echo $liste->siege_social ?></h4>
                             </div>
                             <div class="nom-repondant">
-                                <h5>Laye Tine</h5>
+                                <h5><?php echo $liste->prenom_repondant . " " . $liste->nom_repondant?></h5>
                             </div>
                             <div class="crud-buttons">
                                 <button>Modifier</button>
                                 <button>Supprimer</button>
                             </div>
                         </div>
+                        <?php }?>
                         <!-- Don't forget to use a for loop and grid display -->
                     </div>
                 </div>

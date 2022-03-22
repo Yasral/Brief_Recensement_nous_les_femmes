@@ -100,7 +100,12 @@ Class Entreprise{
     }
 
     public function liste(){
-        //  
+        // Enabling the database connection
+        $this->db->query('SELECT * , nom_repondant FROM Entreprise INNER JOIN Repondant ON repondant_id = id_repondant'); 
+
+        $results = $this->db->resultSet();
+
+        return $results;
     }
 
     public function update(){

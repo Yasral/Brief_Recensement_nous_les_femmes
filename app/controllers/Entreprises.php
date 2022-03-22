@@ -124,7 +124,11 @@ Class Entreprises extends Controller{
 
     public function liste(){
 
+        $data = $this->entrepriseModel->liste();
+
+        // var_dump($data);
+
         // Returning the corresponding view 
-        $this->view('entreprises/liste');
+        $this->view('entreprises/liste', $data);
     }
 } 
