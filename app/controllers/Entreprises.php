@@ -7,11 +7,16 @@ Class Entreprises extends Controller{
 
     public function ajout(){
 
+        if(!isLoggedIn()){
+            header("location: " . URLROOT . "/index");
+        }
+
         $data = [
             'fonctions' => $this->entrepriseModel->findAllFonctions(),
             'regime' => $this->entrepriseModel->findAllRegimeJuridiques(),
             'quartier' => $this->entrepriseModel->findAllQuartiers(),
             'secteur' => $this->entrepriseModel->findAllSecteurActivites(),
+            'user_id' => $_SESSION['id_user'],
             'nom_repondant' => '',
             'prenom_repondant' => '',
             'email_repondant' => '',
@@ -44,6 +49,7 @@ Class Entreprises extends Controller{
                 'regime' => $this->entrepriseModel->findAllRegimeJuridiques(),
                 'quartier' => $this->entrepriseModel->findAllQuartiers(),
                 'secteur' => $this->entrepriseModel->findAllSecteurActivites(),
+                'user_id' => $_SESSION['id_user'],
                 'nom_repondant' => trim($_POST['nom_repondant']),
                 'prenom_repondant' => trim($_POST['prenom_repondant']),
                 'email_repondant' => trim($_POST['email_repondant']),
@@ -115,7 +121,7 @@ Class Entreprises extends Controller{
                     // var_dump($data);
                     header('location: ' . URLROOT . '/entreprises/liste');
             } else {
-                    die("Une erreur s'est produite.");
+                    die("Une erreur s'est produite."); 
                 }
         };
 

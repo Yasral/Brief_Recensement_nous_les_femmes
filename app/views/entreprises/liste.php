@@ -34,10 +34,14 @@
                             <div class="nom-repondant">
                                 <h5><?php echo $liste->prenom_repondant . " " . $liste->nom_repondant?></h5>
                             </div>
-                            <div class="crud-buttons">
-                                <button>Modifier</button>
-                                <button>Supprimer</button>
-                            </div>
+                            <?php if(isset($_SESSION['id_user']) && $_SESSION['id_user'] == $liste->user_id) : ?>
+                                <div class="crud-buttons">
+                                    <!-- <button>Modifier</button>
+                                    <button>Supprimer</button> -->
+                                    <a href="">Modifier</a>
+                                    <a href="">Supprimer</a>
+                                </div>
+                            <?php endif; ?> 
                         </div>
                         <?php }?>
                         <!-- Don't forget to use a for loop and grid display -->

@@ -21,6 +21,7 @@
                         <span class="title">Liste des entreprises</span>
                     </a>
                 </li>
+                <?php if(isLoggedIn()) : ?>
                 <li>
                     <a href="<?php echo URLROOT; ?>/entreprises/ajout">
                         <span class="icon">
@@ -29,6 +30,7 @@
                         <span class="title">Ajout</span>
                     </a>
                 </li>
+                <?php endif; ?>
                 <li>
                     <!-- Have to change the link direction of the navigation -->
                     <?php if(isset($_SESSION['id_user'])) : ?>

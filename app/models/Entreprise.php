@@ -1,11 +1,11 @@
 <?php
 Class Entreprise{
     private $db;
-    private $box;
+    // private $box;
 
     public function __construct(){
         $this->db = new Database;
-        $this->box = new Database;
+        // $this->box = new Database;
     }
 
     // These fonctions retrieve the information related to the tables that are already populated
@@ -66,31 +66,32 @@ Class Entreprise{
         $last_id = $this->db->lastInsertion();
         echo $last_id;
 
-        $this->box->query("INSERT INTO Entreprise (regime_juridique_id, quartier_village_id, repondant_id, secteur_id, nom_entreprise, rccm, ninea, nbre_employes, page_web, siege_social, date_creation, organigramme, dispositif_formation, cotisation_sociale, contrat_formel) VALUES (:regime_juridique_id, :quartier_village_id, :repondant_id, :secteur_id, :nom_entreprise, :rccm, :ninea, :nbre_employes, :page_web, :siege_social, :date_creation, :organigramme, :dispositif_formation, :cotisation_sociale, :contrat_formel)");
+        $this->db->query("INSERT INTO Entreprise (user_id, regime_juridique_id, quartier_village_id, repondant_id, secteur_id, nom_entreprise, rccm, ninea, nbre_employes, page_web, siege_social, date_creation, organigramme, dispositif_formation, cotisation_sociale, contrat_formel) VALUES (:user_id, :regime_juridique_id, :quartier_village_id, :repondant_id, :secteur_id, :nom_entreprise, :rccm, :ninea, :nbre_employes, :page_web, :siege_social, :date_creation, :organigramme, :dispositif_formation, :cotisation_sociale, :contrat_formel)");
         //$this->box->query("INSERT INTO Boxing (repondant_id, regime_juridique_id, quartier_village_id, nbre_employes, date_creation, organigramme) VALUES (:repondant_id, :regime_juridique_id, :quartier_id, :nbre_employes, :date_creation, :organigramme)");
 
         // Bind values
-        $this->box->bind(':regime_juridique_id', $data['regime_juridique_id']);
-        $this->box->bind(':quartier_village_id', $data['quartier_village_id']);
+        $this->db->bind(':user_id', $data['user_id']);
+        $this->db->bind(':regime_juridique_id', $data['regime_juridique_id']);
+        $this->db->bind(':quartier_village_id', $data['quartier_village_id']);
 
         // $this->box->bind(':quartier_id', $data['quartier_id']);
 
 
-        $this->box->bind(':repondant_id', $last_id);
-        $this->box->bind(':secteur_id', $data['secteur_id']);
-        $this->box->bind(':nom_entreprise', $data['nom_entreprise']);
-        $this->box->bind(':rccm', $data['rccm']);
-        $this->box->bind(':ninea', $data['ninea']);
-        $this->box->bind(':nbre_employes', (int)$data['nbre_employes']);
-        $this->box->bind(':page_web', $data['page_web']);
-        $this->box->bind(':siege_social', $data['siege_social']);
-        $this->box->bind(':date_creation', $data['date_creation']);
-        $this->box->bind(':organigramme', $data['organigramme']);
-        $this->box->bind(':dispositif_formation', $data['dispositif_formation']);
-        $this->box->bind(':cotisation_sociale', $data['cotisation_sociale']);
-        $this->box->bind(':contrat_formel', $data['contrat_formel']);
+        $this->db->bind(':repondant_id', $last_id);
+        $this->db->bind(':secteur_id', $data['secteur_id']);
+        $this->db->bind(':nom_entreprise', $data['nom_entreprise']);
+        $this->db->bind(':rccm', $data['rccm']);
+        $this->db->bind(':ninea', $data['ninea']);
+        $this->db->bind(':nbre_employes', (int)$data['nbre_employes']);
+        $this->db->bind(':page_web', $data['page_web']);
+        $this->db->bind(':siege_social', $data['siege_social']);
+        $this->db->bind(':date_creation', $data['date_creation']);
+        $this->db->bind(':organigramme', $data['organigramme']);
+        $this->db->bind(':dispositif_formation', $data['dispositif_formation']);
+        $this->db->bind(':cotisation_sociale', $data['cotisation_sociale']);
+        $this->db->bind(':contrat_formel', $data['contrat_formel']);
 
-        if($this->box->execute()){
+        if($this->db->execute()){
             echo "Yes";
         //    return true;
         }else{
