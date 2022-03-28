@@ -140,10 +140,11 @@ Class Entreprise{
 
         echo "Second step Entreprise query";
 
-        $this->db->query("UPDATE Entreprise SET regime_juridique_id = :regime_juridique_id, quartier_village_id = :quartier_village_id, repondant_id = :repondant_id, secteur_id = :secteur_id, nom_entreprise = :nom_entreprise, rccm = :rccm, ninea = :ninea, nbre_employes = :nbre_employes, page_web = :page_web, siege_social = :siege_social, date_creation = :date_creation, organigramme = :organigramme, dispositif_formation = :dispositif_formation, cotisation_sociale = :cotisation_sociale, contrat_formel = :contrat_formel WHERE id_entreprise = :id_entreprise");
+        $this->db->query("UPDATE Entreprise SET user_id = :user_id, regime_juridique_id = :regime_juridique_id, quartier_village_id = :quartier_village_id, repondant_id = :repondant_id, secteur_id = :secteur_id, nom_entreprise = :nom_entreprise, rccm = :rccm, ninea = :ninea, nbre_employes = :nbre_employes, page_web = :page_web, siege_social = :siege_social, date_creation = :date_creation, organigramme = :organigramme, dispositif_formation = :dispositif_formation, cotisation_sociale = :cotisation_sociale, contrat_formel = :contrat_formel WHERE id_entreprise = :id_entreprise");
 
         // Bind values
         $this->db->bind(':id_entreprise', $data['id_entreprise']);
+        $this->db->bind(':user_id', $data['user_id']);
         $this->db->bind(':regime_juridique_id', $data['regime_juridique_id']);
         $this->db->bind(':quartier_village_id', $data['quartier_village_id']);
 
@@ -163,6 +164,7 @@ Class Entreprise{
         $this->db->bind(':cotisation_sociale', $data['cotisation_sociale']);
         $this->db->bind(':contrat_formel', $data['contrat_formel']);
 
+        var_dump($data);
         echo "Second step Entreprise bind";
 
         if($this->db->execute()){

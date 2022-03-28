@@ -211,12 +211,12 @@ Class Entreprises extends Controller{
                 'nom_repondant' => trim($_POST['nom_repondant']),
                 'prenom_repondant' => trim($_POST['prenom_repondant']),
                 'email_repondant' => trim($_POST['email_repondant']),
-                'numero_repondant' => (int)trim($_POST['numero_repondant']),
+                'numero_repondant' => trim($_POST['numero_repondant']),
                 'fonction_id' => trim($_POST['fonction_id']),
                 'nom_entreprise' => trim($_POST['nom_entreprise']),
                 'rccm' => trim($_POST['rccm']),
                 'ninea' => trim($_POST['ninea']),
-                'nbre_employes' => trim($_POST['nbre_employes']),
+                'nbre_employes' => (int)trim($_POST['nbre_employes']),
                 'page_web' => trim($_POST['page_web']),
                 'siege_social' => trim($_POST['siege_social']),
                 'date_creation' => trim($_POST['date_creation']),
@@ -250,9 +250,9 @@ Class Entreprises extends Controller{
                 // $data['dispositif_formation'] = trim($_POST['dispositif_formation']);
                 // (int) $data['dispositif_formation'];
 
-                $data['dispositf_formation'] = 1;
+                $data['dispositif_formation'] = 1;
             }else{
-                $data['dispositf_formation'] = (int)0;
+                $data['dispositif_formation'] = (int)0;
                 // (int) $data['dispositif_formation'];
             }
 
