@@ -174,7 +174,7 @@ main{
     font-size: 2.5rem;
 }
 
-.navigation li:hover, .toogle, .user:hover, .card, .crud-buttons button{
+.navigation li:hover, .toogle, .user:hover, .card, .crud-buttons button, .crud-buttons a{
     cursor: pointer;
 }
 
@@ -286,11 +286,11 @@ main.active{
     padding: 30px;
 }
 
-.cardHeader > h2, .nom h3, .siege h4, .nom-repondant h5, .crud-buttons button{
+.cardHeader > h2, .nom h3, .siege h4, .nom-repondant h5, .crud-buttons button, .crud-buttons a{
     font-weight: 300;
 }
 
-.crud-buttons button{
+.crud-buttons button, .crud-buttons a{
     outline: none;
     border: none;
     padding: 10px 20px;

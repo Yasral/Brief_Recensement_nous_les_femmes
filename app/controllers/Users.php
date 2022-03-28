@@ -16,12 +16,12 @@ class Users extends Controller {
             'confirmPasswordError' => ''
         ];
 
-      if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        // Process form
-        // Sanitize POST data
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            // Process form
+            // Sanitize POST data
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-              $data = [
+            $data = [
                 'identifiant' => trim($_POST['identifiant']),
                 'email_user' => trim($_POST['email_user']),
                 'password' => trim($_POST['password']),
@@ -66,7 +66,7 @@ class Users extends Controller {
             }
 
             //Validate confirm password
-             if (empty($data['confirmPassword'])) {
+            if (empty($data['confirmPassword'])) {
                 $data['confirmPasswordError'] = 'Confirmez votre mot de passe.';
             } else {
                 if ($data['password'] != $data['confirmPassword']) {

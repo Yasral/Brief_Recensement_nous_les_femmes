@@ -83,6 +83,7 @@ Class Entreprise{
         $this->db->bind(':rccm', $data['rccm']);
         $this->db->bind(':ninea', $data['ninea']);
         $this->db->bind(':nbre_employes', (int)$data['nbre_employes']);
+        // $this->db->bind(':nbre_employes', $data['nbre_employes']);
         $this->db->bind(':page_web', $data['page_web']);
         $this->db->bind(':siege_social', $data['siege_social']);
         $this->db->bind(':date_creation', $data['date_creation']);
@@ -92,10 +93,10 @@ Class Entreprise{
         $this->db->bind(':contrat_formel', $data['contrat_formel']);
 
         if($this->db->execute()){
-            echo "Yes";
+            echo "Entreprise successfully saved";
         //    return true;
         }else{
-            echo "No";
+            echo "Entreprise not saved";
             // return false;
         }
     }
@@ -109,11 +110,83 @@ Class Entreprise{
         return $results;
     }
 
-    public function update(){
-        // 
+    public function modifier($data){
+        $this->db->query("UPDATE Repondant SET fonction_id = :fonction_id, nom_repondant = :nom_repondant, prenom_repondant = :prenom_repondant, numero_repondant = :numero_repondant, email_repondant = :email_repondant WHERE id_repondant = :repondant_id");
+
+        echo "First step Repondant query";
+
+        // $this->db->query("UPDATE Repondant SET fonction_id = :fonction_id WHERE id_repondant = :repondant_id");
+
+        // Bind values
+        // $this->db->bind(':id_repondant', $data['_id']);
+        $this->db->bind(':repondant_id', $data['repondant_id']);
+        $this->db->bind(':fonction_id', $data['fonction_id']);
+        $this->db->bind(':nom_repondant', $data['nom_repondant']);
+        $this->db->bind(':prenom_repondant', $data['prenom_repondant']);
+        $this->db->bind(':numero_repondant', $data['numero_repondant']);
+        $this->db->bind(':email_repondant', $data['email_repondant']);
+
+        echo "First step Repondant bind";
+
+        if($this->db->execute()){
+            echo "Repondant {$data['repondant_id']} successfully updated ";
+        }else{
+            echo "Repondant {$data['repondant_id']} not saved";
+        }
+
+        echo "First step Repondant execution";
+
+        // Getting the updated repondant id
+
+        echo "Second step Entreprise query";
+
+        $this->db->query("UPDATE Entreprise SET regime_juridique_id = :regime_juridique_id, quartier_village_id = :quartier_village_id, repondant_id = :repondant_id, secteur_id = :secteur_id, nom_entreprise = :nom_entreprise, rccm = :rccm, ninea = :ninea, nbre_employes = :nbre_employes, page_web = :page_web, siege_social = :siege_social, date_creation = :date_creation, organigramme = :organigramme, dispositif_formation = :dispositif_formation, cotisation_sociale = :cotisation_sociale, contrat_formel = :contrat_formel WHERE id_entreprise = :id_entreprise");
+
+        // Bind values
+        $this->db->bind(':id_entreprise', $data['id_entreprise']);
+        $this->db->bind(':regime_juridique_id', $data['regime_juridique_id']);
+        $this->db->bind(':quartier_village_id', $data['quartier_village_id']);
+
+        // $this->db->bind(':repondant_id', $updated_id);
+        $this->db->bind(':repondant_id', $data['repondant_id']);
+        $this->db->bind(':secteur_id', $data['secteur_id']);
+        $this->db->bind(':nom_entreprise', $data['nom_entreprise']);
+        $this->db->bind(':rccm', $data['rccm']);
+        $this->db->bind(':ninea', $data['ninea']);
+        // $this->db->bind(':nbre_employes', (int)$data['nbre_employes']);
+        $this->db->bind(':nbre_employes', (int)$data['nbre_employes']);
+        $this->db->bind(':page_web', $data['page_web']);
+        $this->db->bind(':siege_social', $data['siege_social']);
+        $this->db->bind(':date_creation', $data['date_creation']);
+        $this->db->bind(':organigramme', $data['organigramme']);
+        $this->db->bind(':dispositif_formation', $data['dispositif_formation']);
+        $this->db->bind(':cotisation_sociale', $data['cotisation_sociale']);
+        $this->db->bind(':contrat_formel', $data['contrat_formel']);
+
+        echo "Second step Entreprise bind";
+
+        if($this->db->execute()){
+            //echo "Entreprise {$data['id_entreprise']} was successfully updated ";
+            echo "Entreprise was successfully updated ";
+        }else{
+            echo "Entreprise was not saved";
+        }
+
+        echo "Second step entreprise executed";
     }
 
     public function delete(){
         // 
+    }
+
+    // This function retrieve an entreprise id
+    public function findEntrepriseById($id){
+        $this->db->query("SELECT * FROM Entreprise INNER JOIN Repondant WHERE id_entreprise = :id_entreprise AND repondant_id = id_repondant");
+
+        $this->db->bind(':id_entreprise', $id);
+
+        $row = $this->db->single();
+
+        return $row;
     }
 }

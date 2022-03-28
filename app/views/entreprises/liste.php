@@ -38,7 +38,7 @@
                                 <div class="crud-buttons">
                                     <!-- <button>Modifier</button>
                                     <button>Supprimer</button> -->
-                                    <a href="">Modifier</a>
+                                    <a href="<?php echo URLROOT . "/entreprises/modifier/" . $liste->id_entreprise ?>">Modifier</a>
                                     <a href="">Supprimer</a>
                                 </div>
                             <?php endif; ?> 
@@ -57,3 +57,6 @@
 <?php
     require APPROOT . '/views/includes/scripts.php';
 ?>
+
+</body>
+</html>
